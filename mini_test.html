@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // bai 1:
+    // function remove(arr, element){
+    //     let index = arr.indexOf(element);
+    //     if (index !== -1) {
+    //         arr.splice(index, 1);
+    //     }
+    //     return arr;
+    // }
+    //
+    // let arr = [1, 2, 3, 4, 5];
+    // let element = 3;
+    // let newArr = remove(arr, element);
+    // document.write("Mảng sau khi xoá:", newArr);
+    // bai 2:
+        function classification(arr){
+            let countA = 0;
+            let countB = 0;
+            let countC = 0;
+            for (let i = 0; i < sinhvien; i++) {
+                if(arr[i] < 5){
+                    countC++;
+                }else if(arr[i] < 8){
+                    countB++;
+                }else{
+                    countA++;
+                }
+            }
+          return{
+                A : countA,
+                B : countB,
+                C : countC
+          }
+        }
+        let arr = [];
+        let sinhvien;
+        do {
+            sinhvien = +prompt("nhập số lượng sv")
+            if (isNaN(sinhvien) || !Number.isInteger(sinhvien) || sinhvien > 50 || sinhvien <= 0) {
+                alert("số lượng sinh viên là 1 số nguyên lớn hơn 0 và nhỏ hơn 50")
+            }
+        } while ((isNaN(sinhvien) || !Number.isInteger(sinhvien) || sinhvien > 50 || sinhvien <= 0));
+        for (let j = 0; j < sinhvien; j++) {
+            arr[j] = +prompt(" nhập điểm sinh viên ");
+            if (isNaN(arr[j]) || !Number.isInteger(arr[j]) || arr[j] > 10 || arr[j] < 0) {
+                arr[j] = prompt(" điểm sinh viên là 1 số nguyên từ 0 -10 ");
+            }
+        }
+        let counts = classification(arr);
+
+        document.write(`Số bạn loại A: ${counts.A}<br>`);
+        document.write(`Số bạn loại B: ${counts.B}<br>`);
+        document.write(`Số bạn loại C: ${counts.C}<br>`);
+        function averageScore(arr) {
+            let sum = 0;
+            for (let i = 0; i < sinhvien; i++) {
+                sum += arr[i];
+            }
+            return sum/sinhvien
+        }
+        let average = averageScore(arr);
+        document.write(`Điểm trung bình: ${average}`);
+</script>
+</body>
+</html>
